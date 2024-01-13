@@ -12,6 +12,8 @@
 '''
 
 import pathlib
+import argparse
+
 
 
 class FileIO:
@@ -98,8 +100,14 @@ class FileIO:
         elif user_input.lower() == 'y':
             self.get_lst_txt(self_anim_name, self_anim_sound)
 
+def main():
+    parser = argparse.ArgumentParser(description='시작 ')
+    parser.add_argument('path', metavar = 'path', type = str, nargs= '?' , help='도와줘')
+    args = parser.parse_args()
 
-if __name__ == '__main__':
-    fio = FileIO('/data/TD_A')  # cwd -> 다른 컴퓨터로 이동했을 떄도 가능하도록 하는 것
+    fio = FileIO(args.path)  # cwd -> 다른 컴퓨터로 이동했을 떄도 가능하도록 하는 것
     # animal.txt가 있는 디렉토리 경로를 FileIO()에 넣어주면 됨!
     fio.handler()
+
+if __name__ == '__main__':
+   main()
