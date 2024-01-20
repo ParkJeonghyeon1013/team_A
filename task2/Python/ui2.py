@@ -14,6 +14,8 @@ importlib.reload(animal_farm_2_ui)
 import ui1
 import ui3
 
+from task1.save_search_animal import *
+
 class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
     def __init__(self, parent = None):
         super(UI_2, self).__init__(parent)
