@@ -17,11 +17,20 @@ class UI_3(QtWidgets.QWidget, animal_farm_3_ui.Ui_Form):
         super(UI_3, self).__init__(parent)
 
         self.setupUi(self)
-        self.set_label()
+        # self.set_label3()
 
     # textlabel의 내용을 사용자 인풋으로 가져가기.
-    def set_label(self):
-        self.label__animal_name.setText('사용자한테 받은 동물.txt 써넣기')
+    def set_label3(self, a_name):
+        self.label__animal_name.setText(f'{a_name}.txt')
+
+
+
+    # savefile 구현
+    def save_animal_file(self, fpath, a_sound):
+        with open(fpath, 'w', encoding='UTF8') as f:
+            f.write(a_sound)
+
+
 
     # list 안에 든 내용 읽어오기
     def write_animlist_in_(self):
