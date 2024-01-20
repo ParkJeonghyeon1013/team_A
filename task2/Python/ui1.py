@@ -6,16 +6,18 @@ from PySide2 import QtWidgets
 
 import importlib
 import ui2
+import ui3
 
-from task2.Qt import animal_farm_1_ui
+from task2.Qt import animal_farm_1_ui, animal_farm_2_ui, animal_farm_3_ui
 
 importlib.reload(animal_farm_1_ui)
 
 
-class Main(QtWidgets.QWidget, animal_farm_1_ui.Ui_Form_main):
+class Main(QtWidgets.QWidget, animal_farm_1_ui.Ui_Form_main, animal_farm_2_ui.Ui_Form_2):
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
         self.__ui2 = ui2.UI_2()
+        self.__ui3 = ui3.UI_3()
         self.setupUi(self)
         self._signal_func()
 
@@ -25,11 +27,27 @@ class Main(QtWidgets.QWidget, animal_farm_1_ui.Ui_Form_main):
         self.pushButton__main_animal_search.clicked.connect(self.get_info)
 
     def get_info(self):
-        self.get_anim_name()
+        a = self.get_anim_name()
         self.get_anim_sound()
+        self.show_ui2()
+        print(a)
+        self.set_label(a)
 
+    def set_label(self, a_name):
+        # self.__ui2.set_label2(a_name)
+        self.label__animal_name.setText(f'{a_name}.txt')
+
+        # # a_name
+        # a_name = self.get_anim_name()
+        # self.__ui2.set_label(a_name)
+        # self.__ui2.label__animal_name.setText(f'{a_name}.txt')
+
+
+    def show_ui2(self):
         self.__ui2.show()
 
+    def show_ui3(self):
+        self.__ui3.show()
 
 
     def get_anim_name(self):
@@ -62,6 +80,8 @@ class Main(QtWidgets.QWidget, animal_farm_1_ui.Ui_Form_main):
     def set_label(self):
         fpath = self.dir_to_str(self.set_dir())
         self.label__path.setText(fpath)
+
+
 
 
 
