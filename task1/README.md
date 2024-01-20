@@ -1,1 +1,1 @@
-# team_A
+# task 1 - project 설명
