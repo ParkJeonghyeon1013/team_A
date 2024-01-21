@@ -27,10 +27,10 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
 
         # self.__ui3 = ui3.UI_3()
         self.setupUi(self)
+        self.set_label2()
 
         # self.__ui1 = ui1.Main
-        # self._signal_func2()
-        self.set_label2()
+        self._signal_func2()
 
     @property
     def fpath(self):
@@ -78,6 +78,6 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ui2 = UI_2()
-    ui2.show()
-    app.exec_()
+    # # ui2 = UI_2()
+    # ui2.show()
+    # app.exec_()
