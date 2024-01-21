@@ -61,6 +61,7 @@ class UI_3(QtWidgets.QWidget, animal_farm_3_ui.Ui_Form):
 
     def set_textBrowser(self):
         content_lst = self.update_animList()
+        content_lst.append(f'{self.a_name} / {self.a_sound}')
         self.textBrowser_animlist_view.append('[파일명] / [내용]'.center(100,' '))
         for line in content_lst:
             self.textBrowser_animlist_view.append(line)
@@ -86,6 +87,6 @@ class UI_3(QtWidgets.QWidget, animal_farm_3_ui.Ui_Form):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ui3 = UI_3()
-    ui3.show()
-    app.exec_()
+    # ui3 = UI_3()
+    # ui3.show()
+    # app.exec_()
