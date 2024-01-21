@@ -25,12 +25,17 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
         self.__a_name = a_name
         self.__a_sound = a_sound
 
-        # self.__ui3 = ui3.UI_3()
         self.setupUi(self)
+        self._signal_func2()
+
         self.set_label2()
 
+
+
+        # self.pushButton__delete_file.clicked.connect(self.delete_file)
+        # self.pushButton__change_content.clicked.connect(self.change_file)
+
         # self.__ui1 = ui1.Main
-        self._signal_func2()
 
     @property
     def fpath(self):
@@ -57,15 +62,15 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
 
     # textlabel의 내용을 사용자 인풋으로 가져가기.
     def set_label2(self):
-        self.label__animal_name.setText(f'{self.a_name}.txt')
+        self.label__animal_name.setText(f'[{self.a_sound}] / {self.a_name}.txt')
 
 
 
     # TODO: 파일 삭제
     def delete_file(self):
+        self.fpath.unlink()
         print('\n삭제 버튼')
         print(self.fpath)
-        self.fpath.unlink()
 
     # TODO:파일 내용 변경
     def change_file(self):
