@@ -19,17 +19,27 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
 
-        self.__ui2 = ui2.UI_2()
-        self.__ui3 = ui3.UI_3()
         self.__path = pathlib.Path.home()
         self.__animal_name = ''
         self.__animal_sound = ''
+
+        # self.__ui2 = ui2.UI_2()
+        # self.__ui3 = ui3.UI_3()
 
         self.setupUi(self)
         self._signal_func()
 
     def __del__(self):
         pass
+
+    # @property
+    # def ui2(self):
+    #     return self.__ui2
+    #
+    # @property
+    # def ui3(self):
+    #     return self.__ui3
+
 
 # TODO line edit에 적은 문자열을 Search 버튼 누르면
     def _signal_func(self):
@@ -41,12 +51,12 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
 
 
     # ui2의 시그널
-    def _signal_func2(self):
-        txt_path = pathlib.Path(f'{self.__path.as_posix()}/{self.__animal_name}.txt')
-        print(txt_path)
-        self.__ui2.set_label2(self.__animal_name)
-        self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.delete_file(txt_path))
-        self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
+    # def _signal_func2(self):
+    #     txt_path = pathlib.Path(f'{self.__path.as_posix()}/{self.__animal_name}.txt')
+    #     print(txt_path)
+    #     self.__ui2.set_label2(self.__animal_name)
+    #     self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.delete_file(txt_path))
+    #     self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
 
     # ui3의 시그널
     def get_info(self) -> None:
@@ -56,15 +66,17 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
 
         # file이 존재할 때 UI2
         if self.check_file_exist() is True:
-            self.show_ui2()
-            self.set_ui2_label(self.__animal_name)
-            self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.delete_file(txt_path))
-            self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
+            self.ui2 = ui2.UI_2(txt_path, self.__animal_name, self.__animal_sound)
+            self.ui2.show()
+
+            # self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.delete_file(txt_path))
+            # self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
             # self._signal_func2()
 
         # file이 존재하지 않을 때 UI3
         else:
-            self.show_ui3()
+            self.ui3 = ui3.UI_3(self.__path, self.__animal_sound)
+            self.ui3.show()
             self.set_ui3_label(self.__animal_name)
             print(txt_path)
             self.__ui3.save_animal_file(txt_path, self.__animal_sound)
@@ -96,6 +108,11 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
                 continue
         return False
 
+    # test 사용자에게 받은 값 리턴
+    def push_user_input(self):
+        input_lst = [self.__path, self.__animal_name, self.__animal_sound]
+        return input_lst
+
 
 
     # TODO: 파일 내용이 똑같으면 저장하지 않고 끝내는 안내 보여줄까?
@@ -108,6 +125,12 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
     #  UI3 보여주는 method
     def show_ui3(self):
         self.__ui3.show()
+
+    def close_ui2(self):
+        self.__ui2.close()
+
+    def close_ui3(self):
+        self.__ui3.close()
 
     # 사용자에게 받은 animal name __animal_name에 저장하는 함수
     def get_anim_name(self):
