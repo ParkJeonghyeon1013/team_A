@@ -50,14 +50,6 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
         # self.QtWidgets.QFileDialog.fileSelected(self.)
 
 
-    # ui2의 시그널
-    # def _signal_func2(self):
-    #     txt_path = pathlib.Path(f'{self.__path.as_posix()}/{self.__animal_name}.txt')
-    #     print(txt_path)
-    #     self.__ui2.set_label2(self.__animal_name)
-    #     self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.delete_file(txt_path))
-    #     self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
-
     # ui3의 시그널
     def get_info(self) -> None:
         self.get_anim_name()
@@ -69,16 +61,11 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
             self.ui2 = ui2.UI_2(txt_path, self.__animal_name, self.__animal_sound)
             self.ui2.show()
 
-            # self.__ui2.pushButton__change_content.clicked.connect(self.__ui2.delete_file(txt_path))
-            # self.__ui2.pushButton__delete_file.clicked.connect(self.__ui2.change_file(txt_path, self.__animal_sound))
-            # self._signal_func2()
-
         # file이 존재하지 않을 때 UI3
         else:
             self.ui3 = ui3.UI_3(self.__path, self.__animal_name, self.__animal_sound)
             self.ui3.show()
             # self.set_ui3_label(self.__animal_name)
-            print(txt_path)
             # self.__ui3.save_animal_file(txt_path, self.__animal_sound)
 
 
@@ -87,21 +74,16 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
     #     self.__ui3.set_label3(a_name)
 
     def set_ui2_label(self, a_name: str):
-        print(a_name)
+        # print(a_name)
         self.__ui2.set_label2(a_name)
-
-        # # a_name
-        # a_name = self.get_anim_name()
-        # self.__ui2.set_label(a_name)
-        # self.__ui2.label__animal_name.setText(f'{a_name}.txt')
 
 
     # 파일 이름이 있는지 확인해서 true / false 리턴
     def check_file_exist(self) -> bool:
         filename_lst = self.get_files_Path(self.__path)
         for file in filename_lst:
-            print(file)
-            print(self.__animal_name)
+            # print(file)
+            # print(self.__animal_name)
             if file == self.__animal_name:
                 return True
             elif file == 'animList':
