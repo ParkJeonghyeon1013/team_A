@@ -1,0 +1,3 @@
+__pycache__animListtxt / 
+animListtxt / __pycache__animList / 
+
