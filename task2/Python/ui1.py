@@ -1,5 +1,6 @@
 
 import sys
+# import hou
 import os
 import pathlib
 
@@ -50,7 +51,7 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
         # self.QtWidgets.QFileDialog.fileSelected(self.)
 
 
-    # ui3의 시그널
+    # 동일 파일 존재 여부에 따른 UI2, UI3 연결
     def get_info(self) -> None:
         self.get_anim_name()
         self.get_anim_sound()
@@ -73,10 +74,10 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
     #     print(a_name)
     #     self.__ui3.set_label3(a_name)
 
-    def set_ui2_label(self, a_name: str):
-        # print(a_name)
-        self.__ui2.set_label2(a_name)
-
+    # def set_ui2_label(self, a_name: str):
+    #     # print(a_name)
+    #     self.__ui2.set_label2(a_name)
+    #
 
     # 파일 이름이 있는지 확인해서 true / false 리턴
     def check_file_exist(self) -> bool:
