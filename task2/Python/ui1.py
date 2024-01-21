@@ -75,16 +75,16 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
 
         # file이 존재하지 않을 때 UI3
         else:
-            self.ui3 = ui3.UI_3(self.__path, self.__animal_sound)
+            self.ui3 = ui3.UI_3(self.__path, self.__animal_name, self.__animal_sound)
             self.ui3.show()
-            self.set_ui3_label(self.__animal_name)
+            # self.set_ui3_label(self.__animal_name)
             print(txt_path)
-            self.__ui3.save_animal_file(txt_path, self.__animal_sound)
+            # self.__ui3.save_animal_file(txt_path, self.__animal_sound)
 
 
-    def set_ui3_label(self, a_name: str):
-        print(a_name)
-        self.__ui3.set_label3(a_name)
+    # def set_ui3_label(self, a_name: str):
+    #     print(a_name)
+    #     self.__ui3.set_label3(a_name)
 
     def set_ui2_label(self, a_name: str):
         print(a_name)
@@ -108,29 +108,14 @@ class Main(QtWidgets.QWidget, SearchAndSave, animal_farm_1_ui.Ui_Form_main, anim
                 continue
         return False
 
-    # test 사용자에게 받은 값 리턴
-    def push_user_input(self):
-        input_lst = [self.__path, self.__animal_name, self.__animal_sound]
-        return input_lst
-
-
-
     # TODO: 파일 내용이 똑같으면 저장하지 않고 끝내는 안내 보여줄까?
 
 
-    # UI2 보여주는 method
-    def show_ui2(self):
-        self.__ui2.show()
-
-    #  UI3 보여주는 method
-    def show_ui3(self):
-        self.__ui3.show()
-
-    def close_ui2(self):
-        self.__ui2.close()
-
-    def close_ui3(self):
-        self.__ui3.close()
+    # def close_ui2(self):
+    #     self.__ui2.close()
+    #
+    # def close_ui3(self):
+    #     self.__ui3.close()
 
     # 사용자에게 받은 animal name __animal_name에 저장하는 함수
     def get_anim_name(self):
