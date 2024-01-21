@@ -1,6 +1,7 @@
+import pathlib
 import sys
 
-from PySide2 import QtWidgets
+from PySide2.QtWidgets import QWidget, QApplication, QMessageBox, QPushButton, QVBoxLayout
 
 import importlib
 
@@ -16,26 +17,96 @@ import ui3
 
 from task1.save_search_animal import *
 
-class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
-    def __init__(self, parent = None):
+class UI_2(QWidget, animal_farm_2_ui.Ui_Form_2):
+    def __init__(self, fpath, a_name, a_sound, parent=None):
         super(UI_2, self).__init__(parent)
 
-        self.__ui3 = ui3.UI_3()
+        self.__fpath = fpath
+        self.__a_name = a_name
+        self.__a_sound = a_sound
+
         self.setupUi(self)
-        # self.set_label2(self)
+        self._signal_func2()
+
+        self.set_label2()
+
+
+
+        # self.pushButton__delete_file.clicked.connect(self.delete_file)
+        # self.pushButton__change_content.clicked.connect(self.change_file)
+
+        # self.__ui1 = ui1.Main
+
+    @property
+    def fpath(self):
+        fpath = self.__fpath
+        return fpath
+    @property
+    def a_name(self):
+        a_name = self.__a_name
+        return a_name
+
+    @property
+    def a_sound(self):
+        a_sound = self.__a_sound
+        return a_sound
+
+    def __del__(self):
+        pass
+
+    def _signal_func2(self):
+        self.pushButton__delete_file.clicked.connect(self.delete_file)
+        self.pushButton__change_content.clicked.connect(self.change_file)
+
+
 
     # textlabel의 내용을 사용자 인풋으로 가져가기.
-    def set_label2(self, a_name):
-        print(a_name)
-        # a_name = '멍멍'
-        self.label__animal_name.setText(f'{a_name}.txt')
+    def set_label2(self):
+        self.label__animal_name.setText(f'[{self.a_sound}] / {self.a_name}.txt')
+
+
+
+    # TODO: 파일 삭제
+    def delete_file(self):
+        self.fpath.unlink()
+        print('\n삭제 버튼')
+        print(self.fpath)
+
+        self.showMessageBox()
+
+    # TODO:파일 내용 변경
+    def change_file(self):
+        print('\n수정 버튼')
+        print(self.fpath, self.a_sound)
+        with open(self.fpath.as_posix(), 'w', encoding='UTF8') as f:
+            f.write(self.a_sound)
+
+    # messagebox 메서드
+    def showMessageBox(self):
+        msgBox = QMessageBox()
+        msgBox.setWindowTitle("슬픈 소식입니다 ^^")
+        msgBox.setText(self.a_name)
+        msgBox.setInformativeText("동물이 멸종되었습니다...")
+        msgBox.setIcon(QMessageBox.Critical)
+        msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msgBox.setDefaultButton(QMessageBox.Ok)
+
+        result = msgBox.exec()
+        if result == QMessageBox.Ok:
+
+            print("OK")
+            self.close()
+        elif result == QMessageBox.Cancel:
+            print("Cancel")
+
+        elif result == QMessageBox.Discard:
+            print("Discard")
 
 
 
 
-#
-# if __name__ == '__main__':
-#     app = QtWidgets.QApplication(sys.argv)
-#     ui2 = UI_2()
-#     ui2.show()
-#     app.exec_()
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ui2 = UI_2()
+    ui2.show()
+    app.exec_()
