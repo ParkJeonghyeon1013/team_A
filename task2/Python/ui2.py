@@ -1,7 +1,7 @@
 import pathlib
 import sys
 
-from PySide2 import QtWidgets
+from PySide2.QtWidgets import QWidget, QApplication, QMessageBox, QPushButton, QVBoxLayout
 
 import importlib
 
@@ -17,7 +17,7 @@ import ui3
 
 from task1.save_search_animal import *
 
-class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
+class UI_2(QWidget, animal_farm_2_ui.Ui_Form_2):
     def __init__(self, fpath, a_name, a_sound, parent=None):
         super(UI_2, self).__init__(parent)
 
@@ -72,6 +72,8 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
         print('\n삭제 버튼')
         print(self.fpath)
 
+        self.showMessageBox()
+
     # TODO:파일 내용 변경
     def change_file(self):
         print('\n수정 버튼')
@@ -79,10 +81,32 @@ class UI_2(QtWidgets.QWidget, animal_farm_2_ui.Ui_Form_2):
         with open(self.fpath.as_posix(), 'w', encoding='UTF8') as f:
             f.write(self.a_sound)
 
+    # messagebox 메서드
+    def showMessageBox(self):
+        msgBox = QMessageBox()
+        msgBox.setWindowTitle("슬픈 소식입니다 ^^")
+        msgBox.setText(self.a_name)
+        msgBox.setInformativeText("동물이 멸종되었습니다...")
+        msgBox.setIcon(QMessageBox.Critical)
+        msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msgBox.setDefaultButton(QMessageBox.Ok)
+
+        result = msgBox.exec()
+        if result == QMessageBox.Ok:
+
+            print("OK")
+            self.close()
+        elif result == QMessageBox.Cancel:
+            print("Cancel")
+
+        elif result == QMessageBox.Discard:
+            print("Discard")
+
+
 
 
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    # # ui2 = UI_2()
-    # ui2.show()
-    # app.exec_()
+    app = QApplication(sys.argv)
+    ui2 = UI_2()
+    ui2.show()
+    app.exec_()
