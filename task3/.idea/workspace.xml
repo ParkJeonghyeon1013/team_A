@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="681015c0-fc8f-44b8-92ee-60a74ce1a4de" name="Changes" comment="" />
+    <list default="true" id="681015c0-fc8f-44b8-92ee-60a74ce1a4de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hi_json/hipy_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi_json/hipy_json.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,9 +33,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/rapa/git_workspace/team_A/task3"
+    "last_opened_file_path": "/home/rapa/git_workspace/team_A/task3/hi_json"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hi_json" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
