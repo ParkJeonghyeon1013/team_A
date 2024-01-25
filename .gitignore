@@ -502,3 +502,21 @@ nohup.out
 */*/*/__pycache__
 */*/__pycache__
 */__pycache__
+
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Visual Studio work directory
+.vs/
+# Visual Studio build directory
+out/
+
+# Visual Studio Code
+.vscode/
+.cache/
