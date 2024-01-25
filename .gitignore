@@ -495,6 +495,5 @@ fabric.properties
 */animal
 nohup.out
 
-
-task2/.idea
-task3/.idea
+*/.idea
+*/*/.idea

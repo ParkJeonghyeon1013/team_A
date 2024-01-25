@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="681015c0-fc8f-44b8-92ee-60a74ce1a4de" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/task3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task3.iml" afterDir="false" />
+=======
+>>>>>>> 53d87ac58fb60766474148187f37ac1bd8ea2885
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hi_json/hipy_json_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi_json/hipy_json_4.py" afterDir="false" />
     </list>
@@ -38,7 +41,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "pjh",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/USER/Desktop/git_workspace/git_testttt"
+=======
+    "last_opened_file_path": "/home/rapa/git_workspace/team_A/task3/hi_json"
+>>>>>>> 53d87ac58fb60766474148187f37ac1bd8ea2885
   }
 }]]></component>
   <component name="RecentsManager">
