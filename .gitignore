@@ -494,3 +494,10 @@ fabric.properties
 
 */animal
 nohup.out
+
+*/*/*/.idea
+*/*/.idea
+*/.idea
+*/*/*/__pycache__
+*/*/__pycache__
+*/__pycache__
