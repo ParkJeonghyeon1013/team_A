@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="681015c0-fc8f-44b8-92ee-60a74ce1a4de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hi_json/hipy_json_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hi_json/hipy_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi_json/hipy_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/task3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hi_json/hipy_json_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi_json/hipy_json_4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +17,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
@@ -30,10 +34,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.hipy_json_4.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/rapa/git_workspace/team_A/task3/hi_json"
+    "git-widget-placeholder": "pjh",
+    "last_opened_file_path": "C:/Users/USER/Desktop/git_workspace/git_testttt"
   }
 }]]></component>
   <component name="RecentsManager">

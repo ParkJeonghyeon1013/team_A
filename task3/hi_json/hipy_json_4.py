@@ -43,7 +43,7 @@ print('방법 1 - 편한 방법. 키값으로')
 #     except IndexError as err:
 #         print(err)
 #         return
-#
+#             return j_data
 #
 # path = []
 # chg_data = [1001,1,200]
