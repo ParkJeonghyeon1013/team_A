@@ -62,12 +62,13 @@ import json
 # def json_get(file, data_get):
 #     if isinstance(file, dict):
 #         for key, value in file.items():
-#             if str(value) == str(data_get):
-#                 print(value, '이 값은', file, '안에 있어요')
-#             result = json_get(value, data_get)
-#             # if result is not None:
-#             #     return result
-#     #
+#             if str(key) == data_get:
+#                 print(value, '가 안에 있어요')
+#             elif isinstance(value,dict):
+#                     result = json_get(value, data_get)
+#                     if result is not None:
+#                         return result
+#     return value
 #     # elif isinstance(file, list):
 #     #     for idx in file:
 #     #         if str(idx) == str(data_get):
@@ -80,11 +81,11 @@ def json_get(file:dict,data_get):
         if key == data_get:
             data.append(value)
         elif isinstance(value,dict):
+            # print(value,'\n')
             result = json_get(value,data_get)
-            if result is not None:
-                data.extend(result)
+            data.extend(result)
     return data
-print(json_get(json_file,'hipfile'))
+print(json_get(json_file,'EP002_0010'))
 
 
 
