@@ -229,3 +229,30 @@ def json_delete(j_data, path: list) -> None:
 pprint.pprint(json_data)
 # print(deltem(json_data))
 # pprint.pprint(deltem(json_data))
+
+
+
+#####################################0126 ver
+
+print('\n\n 0126 dict fin.. 여기까지가... 끝인가보오..')
+def json_modify_dict0126(d, path: dict, chg_data):
+    for d_k, d_v in d.items(): # dict 값 key / val
+        for p_k, p_v in path.items(): # path 값 key / val
+            if p_v is None:
+                print(d[d_k])
+                print('modify')
+                return
+            if isinstance(d_v, dict) and p_k == d_k: # dict의 val 값이 dict 형태고, 서로 키값 같으면
+                print(d_v, p_v)
+                json_modify_dict0126(d_v, p_v, chg_data )
+
+
+key_data1 = {'project': {'shot': {'EP0001': {'EP0001_0010': {'frange': None}}}}}
+c_data1 = [1200,51200321]
+
+# pprint.pprint(json_data)
+json_modify_dict0126(json_data, key_data1, c_data1)
+pprint.pprint(json_data)
+
+key_data2 = {'project': {'shot': {'EP0002': {'EP002_0010': {'author': None}}}}}
+c_data2 = 'pakjdlfkjslkjdf'
