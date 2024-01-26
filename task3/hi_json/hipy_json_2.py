@@ -27,13 +27,27 @@ json_data = {
 
 key_data = {'project': {'shot': {'EP0001': {'EP0001_0010': {'frange': None}}}}}
 
-# insert, delete, modify, get
-json_modify(json_file, ['project', 'shot', 'EP0001', 'EP0001_0010', 'frange'], [1001, 1100])
-json_modify(json_file, key_data, [1001, 1100])
+insert_key_data = {'EP0005': {'EP0005_0050': {'frange': [1001, 1200]}}}
 
-insert_key_data = {'project': {'shot': {'EP0005': {'EP0005_0050': {'frange': [1001, 1200]}}}}}
-
-json_insert(json_file, insert_key_data)
 
 delete_key_data = {'project': {'shot': {'EP0005': None}}}
-json_delete(json_file, delete_key_data)
+
+
+def json_insert(data: dict, in_data: dict):
+    for k, v in data.items():
+        if k != 'shot':
+            if isinstance(v, dict):
+                if not isinstance(v, dict):
+                    return
+                json_insert(v, in_data)
+        else:
+            data[k].update(in_data)
+            json_insert(v,in_data)
+
+    return data
+
+
+import pprint
+
+print('-'*50)
+pprint.pprint(json_insert(json_data, insert_key_data))
