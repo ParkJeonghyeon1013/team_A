@@ -58,27 +58,40 @@ def json_delete(file, data_delete):
 #             else: json_get(value,data_get)
 
 import json
+#
+# def json_get(file, data_get):
+#     if isinstance(file, dict):
+#         for key, value in file.items():
+#             if str(value) == str(data_get):
+#                 print(value, '이 값은', file, '안에 있어요')
+#             result = json_get(value, data_get)
+#             # if result is not None:
+#             #     return result
+#     #
+#     # elif isinstance(file, list):
+#     #     for idx in file:
+#     #         if str(idx) == str(data_get):
+#     #             print(idx, '이 값은', file, '안에 있어요')
+#
 
-def json_get(file, data_get):
-    if isinstance(file, dict):
-        for key, value in file.items():
-            if str(value) == str(data_get):
-                print(value, '이 값은', file, '안에 있어요')
-            result = json_get(value, data_get)
-            # if result is not None:
-            #     return result
-    #
-    # elif isinstance(file, list):
-    #     for idx in file:
-    #         if str(idx) == str(data_get):
-    #             print(idx, '이 값은', file, '안에 있어요')
+def json_get(file:dict,data_get):
+    data = []
+    for key, value in file.items():
+        if key == data_get:
+            data.append(value)
+        elif isinstance(value,dict):
+            result = json_get(value,data_get)
+            if result is not None:
+                data.extend(result)
+    return data
+print(json_get(json_file,'hipfile'))
 
 
 
 
     # return None
 #
-print(json_get(json_file,'/home/rapa/nk'))
+# print(json_get(json_file,'/home/rapa/nk'))
 
 # json_delete(json_file, delete_key_data)
 # # insert, delete, modify, get
