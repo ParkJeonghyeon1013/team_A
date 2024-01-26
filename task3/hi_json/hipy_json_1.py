@@ -9,8 +9,8 @@ json_data = {
                     'frange': [1001, 1100],
                     'author': ['anon', 'aa'],
                     'filepath': {
-                        'hipfile': '/home/rapa/down',
-                        'nkfile': '/home/rapa/nk',
+                        'hipfileapa/': '/home/rapa/down',
+                        'nkfile': '/home/rnk',
                     }
                 }
             },
@@ -24,16 +24,30 @@ json_data = {
         }
     }
 }
+# delete_key_data = {'project': {'shot': {'EP0005': None}}}
+# json_delete(json_file, delete_key_data)
+#
+# del_key_data = ['project', 'shot', 'EP0002']
+# del_key_data = ['project', ['shot', ['EP0002]]]
+# del_key_data = {'project': {'shot': {'EP0002': None}}}
 
-key_data = {'project': {'shot': {'EP0001': {'EP0001_0010': {'frange': None}}}}}
+# recur(json_data, del_key_data)
+import re
 
-# insert, delete, modify, get
-json_modify(json_file, ['project', 'shot', 'EP0001', 'EP0001_0010', 'frange'], [1001, 1100])
-json_modify(json_file, key_data, [1001, 1100])
 
-insert_key_data = {'project': {'shot': {'EP0005': {'EP0005_0050': {'frange': [1001, 1200]}}}}}
+import pprint
+import re
+def deltem(json_data: dict):
+    note = []
+    for k, v in json_data.items():
+        if isinstance(v, dict):
+            note.append(f"{k}: {deltem(v)}")
+        else:
+            note.append(f"{k}: {v}")
 
-json_insert(json_file, insert_key_data)
+    res =  ', '.join(note)
+    dell = re.sub(r'project:|shot:|EP0002', '',res)
+    return dell
 
-delete_key_data = {'project': {'shot': {'EP0005': None}}}
-json_delete(json_file, delete_key_data)
+# 결과 출력
+pprint.pprint(deltem(json_data))
