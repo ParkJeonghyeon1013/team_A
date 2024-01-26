@@ -239,12 +239,11 @@ def json_modify_dict0126(d, path: dict, chg_data):
     for d_k, d_v in d.items(): # dict 값 key / val
         for p_k, p_v in path.items(): # path 값 key / val
             if p_k == d_k and p_v is None:  #  서로 키값이 같고, p_v가 none이면 
-                print(d[d_k])
-                print('modify')
+                d[d_k] = chg_data
                 return
     
             if isinstance(d_v, dict) and p_k == d_k: # dict의 val 값이 dict 형태고, 서로 키값 같으면
-                print(d_v, p_v)
+#                 print(d_v, p_v)
                 json_modify_dict0126(d_v, p_v, chg_data )
     return d
 
@@ -255,7 +254,10 @@ c_data1 = [1200,51200321]
 # pprint.pprint(json_data)
 a = json_modify_dict0126(json_data, key_data1, c_data1)
 # pprint.pprint(json_data)
-print('>>찐막>', a)
+print('>>찐막>')
+
+
+pprint.pp(a, sort_dicts=False)
 
 key_data2 = {'project': {'shot': {'EP0002': {'EP002_0010': {'author': None}}}}}
 c_data2 = 'pakjdlfkjslkjdf'
