@@ -90,17 +90,17 @@ class Json_Parser:
     #     return data
 
 
-    # def json_get(file:dict,data_get):
-    #     data = []
-    #     for key, value in file.items():
-    #         if key == data_get:
-    #             data.append(value)
-    #         elif isinstance(value,dict):
-    #             # print(value,'\n')
-    #             result = json_get(value,data_get)
-    #             data.extend(result)
-    #     return data
-    #
+    def json_get(self,data_get):
+        data = []
+        for key, value in data_get.items():
+            if key == data_get:
+                data.append(value)
+            elif isinstance(value,dict):
+                # print(value,'\n')
+                result = self.json_get(value)
+                data.extend(result)
+        return data
+
 
 
 
@@ -135,17 +135,16 @@ if __name__ == '__main__':
     print(dic)
     a = input("어떤 실행을 하시겠습니까? = (ex : modify,delete,insert,get)\n>>")
 
+    data = f.open_file()
     if a == '1':
         # pprint.pp(f.json_modify(f.get_json_path(), modify_key_data, c_data))
         pass
     elif a == '2':
-        dic = f.open_file()
-        # print(dic)
-        pprint.pp(f.json_delete(dic))
+        pprint.pp(f.json_delete(data))
     # elif a == '3':
     #     pprint.pp(f.json_insert(f.get_json_path(), insert_key_data),sort_dicts=False)
-    # elif a == '4':
-    #     pprint.pp(f.json_get(f.get_json_path(),'frange'))
+    elif a == '4':
+        pprint.pp((f.json_get('frange')))
     #
 
 
