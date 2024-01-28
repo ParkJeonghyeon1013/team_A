@@ -32,6 +32,6 @@
 ## Contributors
 
 
-|[![ParkJeonghyeon](https://github.com/ParkJeonghyeon1013.png)](https://github.com/ParkJeonghyeon1013) | [![Yeeun Ko](https://github.com/yeko0124.png)](https://github.com/yeko0124) | [![Yeeun Ko](https://github.com/yeko0124.png)](https://github.com/yeko0124) |[![Yeeun Ko](https://github.com/yeko0124.png)](https://github.com/yeko0124) |
+|[![ParkJeonghyeon](https://github.com/ParkJeonghyeon1013.png)](https://github.com/ParkJeonghyeon1013) | [![Yeeun Ko](https://github.com/yeko0124.png)](https://github.com/yeko0124) | [![rlawns8688](https://github.com/rlawns8688.png)](https://github.com/rlawns8688) |[![collarberry](https://github.com/collarberry.png)](https://github.com/collarberry) |
 | :------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | 
-|[ParkJeonghyeon](https://github.com/ParkJeonghyeon1013)<br>git|[Yeeun Ko](https://github.com/yeko0124)<br>고예은|[Yeeun Ko](https://github.com/yeko0124)<br>고예은|[Yeeun Ko](https://github.com/yeko0124)<br>고예은|        
+|[ParkJeonghyeon](https://github.com/ParkJeonghyeon1013)<br>박정현|[Yeeun Ko](https://github.com/yeko0124)<br>고예은|[rlawns8688](https://github.com/rlawns8688)<br>김준혁|[collarberry](https://github.com/collarberry)<br>이지영|        
