@@ -90,6 +90,16 @@ class Json_Parser:
         return data
 
 
+    def json_modify(self, d, path: dict, chg_data):
+        for d_k, d_v in d.items():  # dict 값 key / val
+            for p_k, p_v in path.items():  # path 값 key / val
+                if p_k == d_k and p_v is None:  # 서로 키값이 같고, p_v가 none이면
+                    d[d_k] = chg_data
+                    return
+                if isinstance(d_v, dict) and p_k == d_k:  # dict의 val 값이 dict 형태고, 서로 키값 같으면
+                    self.json_modify(d_v, p_v, chg_data)
+        return d
+
     # def json_get(file:dict,data_get):
     #     data = []
     #     for key, value in file.items():
@@ -101,18 +111,11 @@ class Json_Parser:
     #             data.extend(result)
     #     return data
     #
+    #
+    #
 
 
 
-    def json_modify(self, d, path: dict, chg_data):
-        for d_k, d_v in d.items():  # dict 값 key / val
-            for p_k, p_v in path.items():  # path 값 key / val
-                if p_k == d_k and p_v is None:  # 서로 키값이 같고, p_v가 none이면
-                    d[d_k] = chg_data
-                    return
-                if isinstance(d_v, dict) and p_k == d_k:  # dict의 val 값이 dict 형태고, 서로 키값 같으면
-                    self.json_modify(d_v, p_v, chg_data)
-        return d
 
 
 
