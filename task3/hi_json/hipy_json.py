@@ -55,29 +55,17 @@ class Json_Parser:
         return pathlib.Path(self.s_path).as_posix()
 
     # @staticmethod
-    def open_file(self):
-        print(self.get_json_path())
-        with open('/home/rapa/clone/team_A/task3/hi_json/json_file.json','r') as fp:
+    def open_file(self) -> dict:
+        # print(self.get_json_path())
+        with open(self.get_json_path(),'r') as fp:
             self.json_data = json.load(fp)
-            print(self.json_data)
+            # print(self.json_data)
+        return self.json_data
 
 
-
-
-
-
-
-
-
-
-
-    #
-
-
-    def json_delete(self):
+    def json_delete(self, dic: dict) -> list:
         note = []
-
-        for k, v in self.json_data.items():
+        for k, v in dic.items():
             if isinstance(v, dict):
                 note.append(f"{k}: {self.json_delete(v)}")
             else:
@@ -145,14 +133,15 @@ if __name__ == '__main__':
            '4':'get',}
     f = Json_Parser('/home/rapa/clone/team_A/task3/hi_json/json_file.json')
     print(dic)
-    a = input("어떤 실행을 하시겠습니까? = (ex : modify,delete,insert,get")
+    a = input("어떤 실행을 하시겠습니까? = (ex : modify,delete,insert,get)\n>>")
 
     if a == '1':
         # pprint.pp(f.json_modify(f.get_json_path(), modify_key_data, c_data))
         pass
     elif a == '2':
-        f.open_file()
-        pprint.pp(f.json_delete())
+        dic = f.open_file()
+        # print(dic)
+        pprint.pp(f.json_delete(dic))
     # elif a == '3':
     #     pprint.pp(f.json_insert(f.get_json_path(), insert_key_data),sort_dicts=False)
     # elif a == '4':
