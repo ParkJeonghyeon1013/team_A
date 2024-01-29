@@ -76,49 +76,43 @@ class Json_Parser:
         return dell
 
 
-    # def json_insert(data: dict, in_data: dict):
-    #     for k, v in data.items():
-    #         if k != 'shot':
-    #             if isinstance(v, dict):
-    #                 if not isinstance(v, dict):
-    #                     return
-    #                 json_insert(v, in_data)
-    #         else:
-    #             data[k].update(in_data)
-    #             json_insert(v,in_data)
-    #
-    #     return data
+    def json_insert(self, data: dict, in_data: dict):
+        for k, v in data.items():
+            if k != 'shot':
+                if isinstance(v, dict):
+                    if not isinstance(v, dict):
+                        return
+                    self.json_insert(v, in_data)
+            else:
+                data[k].update(in_data)
+                # self.json_insert(v, in_data)
 
-
-    def json_get(self,data_get):
-        data = []
-        for key, value in data_get.items():
-            if key == data_get:
-                data.append(value)
-            elif isinstance(value,dict):
-                # print(value,'\n')
-                result = self.json_get(value)
-                data.extend(result)
         return data
 
 
+    def json_modify(self, d, path: dict, chg_data):
+        for d_k, d_v in d.items():  # dict 값 key / val
+            for p_k, p_v in path.items():  # path 값 key / val
+                if p_k == d_k and p_v is None:  # 서로 키값이 같고, p_v가 none이면
+                    d[d_k] = chg_data
+                    return
+                if isinstance(d_v, dict) and p_k == d_k:  # dict의 val 값이 dict 형태고, 서로 키값 같으면
+                    self.json_modify(d_v, p_v, chg_data)
+        return d
 
 
-    #
-    # def json_modify(d, path: dict, chg_data):
-    #     for d_k, d_v in d.items():  # dict 값 key / val
-    #         for p_k, p_v in path.items():  # path 값 key / val
-    #             if p_k == d_k and p_v is None:  # 서로 키값이 같고, p_v가 none이면
-    #                 d[d_k] = chg_data
-    #                 return
-    #
-    #             if isinstance(d_v, dict) and p_k == d_k:  # dict의 val 값이 dict 형태고, 서로 키값 같으면
-    #                 #                 print(d_v, p_v)
-    #                 json_modify(d_v, p_v, chg_data)
-    #     return d
-    #
+    def json_get(self,data,getval):
+        lst = []
+        for key, value in data.items():
+            if key == getval:
+                lst.append(value)
+            elif isinstance(value,dict):
+                # print(value,'\n')
+                result = self.json_get(value,getval)
+                lst.extend(result)
 
-
+        res = ''.join(lst)
+        return res
 
 if __name__ == '__main__':
     insert_key_data = {'EP0005': {'EP0005_0050': {'frange': [1001, 1200]}}}
@@ -133,19 +127,18 @@ if __name__ == '__main__':
            '4':'get',}
     f = Json_Parser('/home/rapa/clone/team_A/task3/hi_json/json_file.json')
     print(dic)
-    a = input("어떤 실행을 하시겠습니까? = (ex : modify,delete,insert,get)\n>>")
+    a = input("어떤 실행을 하시겠습니까? = (ex : modify,delete,insert,get)\n>> ")
 
     data = f.open_file()
     if a == '1':
-        # pprint.pp(f.json_modify(f.get_json_path(), modify_key_data, c_data))
-        pass
+        print(f'Json Parser [{dic[a]}]를 실행합니다.\n{modify_key_data}를 {c_data}로 바꿉니다.\n')
+        pprint.pp(f.json_modify(f.open_file(), modify_key_data, c_data))
     elif a == '2':
         pprint.pp(f.json_delete(data))
-    # elif a == '3':
-    #     pprint.pp(f.json_insert(f.get_json_path(), insert_key_data),sort_dicts=False)
+    elif a == '3':
+        pprint.pp(f.json_insert(f.open_file(), insert_key_data), sort_dicts=False)
     elif a == '4':
-        pprint.pp((f.json_get('frange')))
-    #
+        pprint.pp((f.json_get(f.open_file(), 'datetime')))
 
 
 
